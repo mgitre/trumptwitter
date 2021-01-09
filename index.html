@@ -23,6 +23,7 @@ $( document ).ready(function() {
     $("#tweetPic").prepend('<img src="https://media-cdn.factba.se/realdonaldtrump-twitter/'+tweetID+'.jpg"/>');
     $("#replies").attr("href","https://twitter.com/realdonaldtrump/status/"+tweetID);
     $("#archive").attr("href","https://web.archive.org/web/1/https://twitter.com/realdonaldtrump/status/"+tweetID);
+    $("#archivemenu").attr("href","https://web.archive.org/web/*/https://twitter.com/realdonaldtrump/status/"+tweetID);
     if(!tweetID) return;
   $.getJSON('https://www.thetrumparchive.com/tweets/'+tweetID, function(tweet){
       showTweetText(tweet);
@@ -38,6 +39,6 @@ $( document ).ready(function() {
     </br></br>
     <a id="replies">See replies</a>
     </br></br>
-    <a id="archive">See this tweet on archive.org</a>
+    <a id="archive">See most recent copy of tweet on archive.org</a> or <a id="archivemenu">See all available copies</a>
 </body>
 </html>
