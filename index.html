@@ -15,7 +15,7 @@ function getTweetIDFromURL(){
     
 $( document ).ready(function() {
     tweetID=getTweetIDFromURL();
-    $("#tweetpic").prepend('<img src="https://media-cdn.factba.se/realdonaldtrump-twitter/'+tweetID+'.jpg"/>');
+    $("#tweetPic").prepend('<img src="https://media-cdn.factba.se/realdonaldtrump-twitter/'+tweetID+'.jpg"/>');
     $("#url").attr("href","https://twitter.com/realdonaldtrump/status/"+tweetID);
     if(!tweetID) return;
   $.getJSON('https://www.thetrumparchive.com/tweets/'+tweetID, function(tweet){
