@@ -2,31 +2,10 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-/*function loadJSON(callback) {   
-
-    var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'https://raw.githubusercontent.com/mgitre/trumptwitter/main/tweets_01-08-2021.json', true);
-    xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
-            callback(JSON.parse(xobj.responseText));
-          }
-    };
-    xobj.send(null);  
- }*/
- 
-function getTweetByID(data, id){
-  for(var i=0; i<data.length; i++){
-    if(data[i]['id']==id){
-      return data[i];
-    }
-  }
-  return;
-}
 
 function showTweetText(tweet){
   console.log(tweet);
-  $(".text").text(tweet['text']);
+  $("#text").text(tweet['text']);
 }
     
 function getTweetIDFromURL(){
@@ -36,15 +15,21 @@ function getTweetIDFromURL(){
     
 $( document ).ready(function() {
     tweetID=getTweetIDFromURL();
+    $("#tweetpic").prepend('<img src="https://media-cdn.factba.se/realdonaldtrump-twitter/'+tweetID+'.jpg"/>');
+    $("#url").attr("href","https://twitter.com/realdonaldtrump/status/"+tweetID);
     if(!tweetID) return;
-  $.getJSON('https://raw.githubusercontent.com/mgitre/trumptwitter/main/tweets_01-08-2021.json', function(data){
-      tweet=getTweetByID(data,tweetID);
+  $.getJSON('https://www.thetrumparchive.com/tweets/'+tweetID, function(tweet){
       showTweetText(tweet);
   });
 });
 </script>
 </head>
 <body>
-    <div class="text"></div>
+    What the tweet looked like:
+    <div id="tweetPic"></div>
+    </br></br>
+    Raw text:
+    <div id="text"></div>
+    <a id="url">See replies</a>
 </body>
 </html>
