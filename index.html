@@ -17,7 +17,7 @@ $( document ).ready(function() {
     tweetID=getTweetIDFromURL();
     if(!tweetID){
       $("body").empty();
-      $("body").prepend("Drag this to your bookmarks bar: </br><a href=\"javascript:url=window.location.href.toLowerCase(); split=url.split('https://twitter.com/realdonaldtrump/status/'); if(split.length==2) {tweetId=split[1]; if (window.location.search) tweetId=tweetId.split(window.location.search)[0];} else {tweetId=prompt('Tweet ID');} if (tweetId) window.open('https://mgitre.github.io/trumptwitter/?tweet='+tweetId);\">Trump Twitter</a>");
+      $("body").prepend("Drag this to your bookmarks bar: </br><a href=\"javascript:url=window.location.href.toLowerCase(); split=url.split('https://twitter.com/realdonaldtrump/status/'); if(split.length==2) {tweetId=split[1].split("?")[0];} else {tweetId=prompt('Tweet ID');} if (tweetId) window.open('https://mgitre.github.io/trumptwitter/?tweet='+tweetId);\">Trump Twitter</a>");
      return; 
     }
     $("#tweetPic").prepend('<img src="https://media-cdn.factba.se/realdonaldtrump-twitter/'+tweetID+'.jpg"/>');
