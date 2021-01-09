@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+function loadJSON(callback) {   
+
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'https://raw.githubusercontent.com/mgitre/trumptwitter/main/tweets_01-08-2021.json', true);
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);  
+ }
+ 
+function getTweetByID(data, id){
+  for(var i=0; i<data.length; i++){
+    if(data[i]['id']==id){
+      return data[i];
+    }
+  return;
+}
+
+function showTweetText(tweet){
+  console.log(tweet);
+}
