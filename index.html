@@ -26,7 +26,15 @@ function getTweetByID(data, id){
 
 function showTweetText(tweet){
   console.log(tweet);
+  $("#text").text(tweet);
 }
+    
+function getTweetIDFromURL(){
+    urlParam = new URLSearchParams(window.location.search);
+    return urlParam.get("tweet");
+}
+    
+
 </script>
 </head>
 <body>
