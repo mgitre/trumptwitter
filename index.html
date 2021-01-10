@@ -22,7 +22,7 @@ function showTweet(tweet){
   hearts=tweet['favorites'];
   retweets=tweet['retweets'];
   console.log(text);
-  $("#main").append(`
+  $("#main").prepend(`
 What the tweet looked like via <a href="https://factba.se/topic/twitter">factba.se</a> (note: Time shown in photo is in GMT timzeone):
 <div class="imageWrapper"><img src="https://media-cdn.factba.se/realdonaldtrump-twitter/${tweetID}.jpg"/></div>
 Raw text of the tweet via the <a href="https://www.thetrumparchive.com/">Trump Twitter Archive</a>:
@@ -49,8 +49,7 @@ function getTweetIDFromURL(){
 $( document ).ready(function() {
     tweetID=getTweetIDFromURL();
     if(!tweetID){
-      $("body").empty();
-      $("body").prepend("Drag this to your bookmarks bar: </br><a href=\"javascript:url=window.location.href.toLowerCase(); split=url.split('https://twitter.com/realdonaldtrump/status/'); if(split.length==2) {tweetId=split[1].split('?')[0];} else {tweetId=prompt('Tweet ID');} if (tweetId) window.open('https://mgitre.github.io/trumptwitter/?tweet='+tweetId);\">Trump Twitter</a>");
+      $("#main").prepend("Drag this to your bookmarks bar: </br><a href=\"javascript:url=window.location.href.toLowerCase(); split=url.split('https://twitter.com/realdonaldtrump/status/'); if(split.length==2) {tweetId=split[1].split('?')[0];} else {tweetId=prompt('Tweet ID');} if (tweetId) window.open('https://mgitre.github.io/trumptwitter/?tweet='+tweetId);\">Trump Twitter</a>");
       return; 
     }
     $.getJSON('https://www.thetrumparchive.com/tweets/'+tweetID, function(tweet){
@@ -63,6 +62,7 @@ $( document ).ready(function() {
 </head>
 <body>
 <div id='main'>
-  </div>
+  </br>Brought to you by <a href="https://presswatchers.org">PressWatchers.org</a>
+</div>
 </body>
 </html>
