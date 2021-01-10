@@ -41,7 +41,7 @@ $( document ).ready(function() {
       return; 
     }
     $.getJSON('https://www.thetrumparchive.com/tweets/'+tweetID, function(tweet){
-      showTweet(tweet['text'], tweetID);
+      showTweet(tweet, tweetID);
     }).fail(function(){alert("Tweet not found!")});
     
   
