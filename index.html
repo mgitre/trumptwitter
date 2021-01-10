@@ -1,6 +1,10 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+  div {
+    margin-top: 70px;padding: 25px;font-size: 24px;
+  }
 <script>
 
 function showTweetText(tweet){
@@ -34,11 +38,11 @@ $( document ).ready(function() {
 <body>
     What the tweet looked like:
     <div id="tweetPic"></div>
-    Raw text:
+    Raw text of the tweet via the <a href="https://www.thetrumparchive.com/">Trump Twitter Archive</a>:
     <div id="text"></div>
     </br></br>
-    <a id="replies">See replies</a>
+    <a id="replies">Original twitter link (may still contain replies)</a>
     </br></br>
-    <a id="archive">See most recent copy of tweet on archive.org</a> or <a id="archivemenu">See all available copies</a>
+See <a id="archive">a copy</a> of tweet or <a id="archivemenu"> all available copies</a> on <a href="https://archive.org">archive.org</a>
 </body>
 </html>
