@@ -1,11 +1,7 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style>
-  div {
-    margin-top: 70px;padding: 25px;font-size: 24px;
-  }
-  </style>
+
 <script>
 
 function showTweetText(tweet){
@@ -25,14 +21,14 @@ $( document ).ready(function() {
       $("body").prepend("Drag this to your bookmarks bar: </br><a href=\"javascript:url=window.location.href.toLowerCase(); split=url.split('https://twitter.com/realdonaldtrump/status/'); if(split.length==2) {tweetId=split[1].split('?')[0];} else {tweetId=prompt('Tweet ID');} if (tweetId) window.open('https://mgitre.github.io/trumptwitter/?tweet='+tweetId);\">Trump Twitter</a>");
       return; 
     }
+    $.getJSON('https://www.thetrumparchive.com/tweets/'+tweetID, function(tweet){
+      showTweetText(tweet);
+    }).fail(function(){alert("failure")});
     $("#tweetPic").prepend('<img src="https://media-cdn.factba.se/realdonaldtrump-twitter/'+tweetID+'.jpg"/>');
     $("#replies").attr("href","https://twitter.com/realdonaldtrump/status/"+tweetID);
     $("#archive").attr("href","https://web.archive.org/web/1/https://twitter.com/realdonaldtrump/status/"+tweetID);
     $("#archivemenu").attr("href","https://web.archive.org/web/*/https://twitter.com/realdonaldtrump/status/"+tweetID);
-    if(!tweetID) return;
-  $.getJSON('https://www.thetrumparchive.com/tweets/'+tweetID, function(tweet){
-      showTweetText(tweet);
-  });
+  
 });
 </script>
 </head>
@@ -40,7 +36,7 @@ $( document ).ready(function() {
     What the tweet looked like:
     <div id="tweetPic"></div>
     Raw text of the tweet via the <a href="https://www.thetrumparchive.com/">Trump Twitter Archive</a>:
-    <div id="text"></div>
+    <div id="text" style="margin-top: 70px;background: #64cfd9;padding: 25px;font-size: 24px;"></div>
     </br></br>
     <a id="replies">Original twitter link (may still contain replies)</a>
     </br></br>
