@@ -13,7 +13,7 @@ function showTweet(tweet){
   hearts=tweet['favorites'];
   retweets=tweet['retweets'];
   console.log(text);
-  $("body").append(`
+  $("#main").append(`
 What the tweet looked like (note: Time shown in photo is in GMT timzeone):
 <div class="imageWrapper"><img src="https://media-cdn.factba.se/realdonaldtrump-twitter/${tweetID}.jpg"/></div>
 Raw text of the tweet via the <a href="https://www.thetrumparchive.com/">Trump Twitter Archive</a>:
@@ -53,6 +53,7 @@ $( document ).ready(function() {
 </script>
 </head>
 <body>
-    
+<div id='main'>
+  </div>
 </body>
 </html>
