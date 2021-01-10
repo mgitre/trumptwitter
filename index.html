@@ -8,7 +8,7 @@ function showTweet(text, tweetID){
   console.log(text);
   $("body").append(`
   What the tweet looked like:
-    <img src="https://media-cdn.factba.se/realdonaldtrump-twitter/`+tweetID+`.jpg"/>
+    <div class="imageWrapper"><img src="https://media-cdn.factba.se/realdonaldtrump-twitter/`+tweetID+`.jpg"/></div>
     Raw text of the tweet via the <a href="https://www.thetrumparchive.com/">Trump Twitter Archive</a>:
     <div id="text" style="margin-top: 70px;background: #64cfd9;padding: 25px;font-size: 24px;">`+text+`</div>
     </br></br>
@@ -37,8 +37,7 @@ $( document ).ready(function() {
     }
     $.getJSON('https://www.thetrumparchive.com/tweets/'+tweetID, function(tweet){
       showTweet(tweet['text'], tweetID);
-    }).fail(function(){alert("failure")});
-    //$("#tweetPic").prepend('<img src="https://media-cdn.factba.se/realdonaldtrump-twitter/'+tweetID+'.jpg"/>');
+    }).fail(function(){alert("Tweet not found!")});
     
   
 });
