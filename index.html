@@ -8,18 +8,18 @@ function showTweet(text, tweetID){
   console.log(text);
   $("body").append(`
   What the tweet looked like:
-    <img src="https://media-cdn.factba.se/realdonaldtrump-twitter/'`+tweetID+`'.jpg"/>
+    <img src="https://media-cdn.factba.se/realdonaldtrump-twitter/`+tweetID+`.jpg"/>
     Raw text of the tweet via the <a href="https://www.thetrumparchive.com/">Trump Twitter Archive</a>:
-    <div id="text" style="margin-top: 70px;background: #64cfd9;padding: 25px;font-size: 24px;"></div>
+    <div id="text" style="margin-top: 70px;background: #64cfd9;padding: 25px;font-size: 24px;">`+text+`</div>
     </br></br>
-    <a id="replies">Original twitter link (may still contain replies)</a>
+    <a href="https://twitter.com/realDonaldTrump/`+tweetID+`" id="replies">Original twitter link (may still contain replies)</a>
     </br></br>
-See <a id="archive">a copy</a> of tweet or <a id="archivemenu"> all available copies</a> on <a href="https://archive.org">archive.org</a>
+See <a id="archive" href="https://web.archive.org/web/1/https://twitter.com/realDonaldTrump/status/`+tweetID+`">a copy</a> of tweet or <a id="archivemenu" href="https://web.archive.org/web/*/https://twitter.com/realDonaldTrump/status/`+tweetID+`> all available copies</a> on <a href="https://archive.org">archive.org</a>
 
   `);
-    $("#replies").attr("href","https://twitter.com/realdonaldtrump/status/"+tweetID);
-    $("#archive").attr("href","https://web.archive.org/web/1/https://twitter.com/realdonaldtrump/status/"+tweetID);
-    $("#archivemenu").attr("href","https://web.archive.org/web/*/https://twitter.com/realdonaldtrump/status/"+tweetID);
+    //$("#replies").attr("href","https://twitter.com/realdonaldtrump/status/"+tweetID);
+    //$("#archive").attr("href","https://web.archive.org/web/1/https://twitter.com/realdonaldtrump/status/"+tweetID);
+    //$("#archivemenu").attr("href","https://web.archive.org/web/*/https://twitter.com/realdonaldtrump/status/"+tweetID);
   //$("#text").text(tweet['text']);
 }
     
